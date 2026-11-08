@@ -33,7 +33,7 @@ def pbr(name,rgb,metal,rough,alpha=255,tex=None):
     if tex is not None: m.baseColorTexture=tex
     return m
 
-abs_mat=pbr('ABS_szurke',[0.70,0.71,0.73],0.0,0.45)
+abs_mat=pbr('ABS_szurke',[0.50,0.51,0.53],0.0,0.5)
 alu_mat=pbr('aluminium',[0.80,0.81,0.83],0.85,0.32)
 dark_mat=pbr('fekete_el',[0.12,0.12,0.13],0.0,0.6)
 
@@ -72,7 +72,7 @@ arr[:,tw//2-2:tw//2+2,3]=130
 tex_img=Image.fromarray(arr,'RGBA'); tex_img.save('stripes.png')
 import PIL
 PC=pbr('polikarbonat',[1,1,1],0.0,0.2,tex=tex_img)
-PC.baseColorFactor=[1,1,1,1]
+PC.baseColorFactor=[255,255,255,255]
 
 Tl=A.Tline
 Tpts=np.array([M(*p) for p in Tl.coords])            # (z,v), wall -> front as x decreases
