@@ -47,7 +47,7 @@ for g in geoms: arm_poly=arm_poly.difference(g.buffer(-0.004))
 arm_poly=arm_poly.buffer(0)
 if isinstance(arm_poly,MultiPolygon): arm_poly=max(arm_poly.geoms,key=lambda g:g.area)
 ARM_W=0.045
-grey=mat('ABS_szurke',[0.62,0.64,0.66],0.0,0.55)
+grey=mat('ABS_szurke',[0.42,0.44,0.46],0.0,0.6)
 
 scene=trimesh.Scene()
 for xc in (0.035,W/2,W-0.035):
@@ -62,7 +62,7 @@ for i,(a,b) in enumerate(((0,W/2),(W/2,W))):
     o=arc_pts(R+T+0.001,50,0.0,D); inn=arc_pts(R+0.001,50,0.0,D)
     poly=Polygon(o+inn[::-1]).buffer(0)
     m=to_mesh(poly,a-W/2+gap/2,b-W/2-gap/2)
-    m.visual=trimesh.visual.TextureVisuals(material=mat('polikarbonat',[0.86,0.93,0.95],0.0,0.08,95))
+    m.visual=trimesh.visual.TextureVisuals(material=mat('polikarbonat',[0.70,0.80,0.84],0.0,0.12,85))
     scene.add_geometry(m,node_name=f'tetolap_{i+1}',geom_name=f'tetolap_{i+1}')
 
 # ---------- aluminium profiles ----------
